@@ -55,6 +55,7 @@ namespace mix_weeg_service
             try
             {
                 Thread.Sleep(5);
+                Console.WriteLine("void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)", Environment.NewLine);
                 string data = _serialPort.ReadLine();
                 if (comServer != null)
                 {
