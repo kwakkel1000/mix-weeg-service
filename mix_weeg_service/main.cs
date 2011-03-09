@@ -70,7 +70,7 @@ namespace mix_weeg_service
                 {
                     Thread.Sleep(1);
                     i++;
-                    if (i >= 50000)
+                    if (i >= 500)
                     {
                         Console.WriteLine("pauze", Environment.NewLine);
                         i = 0;
