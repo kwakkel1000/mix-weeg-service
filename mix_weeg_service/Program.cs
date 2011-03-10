@@ -22,6 +22,7 @@ namespace mix_weeg_service
             {
                 Console.WriteLine(ee.ToString(), Environment.NewLine);
                 Console.WriteLine("error afgevangen in program", Environment.NewLine);
+                Console.ReadLine();
             }
         }
     }
