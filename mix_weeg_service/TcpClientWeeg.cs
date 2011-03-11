@@ -30,16 +30,6 @@ namespace mix_weeg_service
                 ASCIIEncoding asen = new ASCIIEncoding();
                 byte[] data = asen.GetBytes(str);
                 stm.Write(data, 0, data.Length);
-                // Buffer to store the response bytes.
-                data = new Byte[256];
-
-                // String to store the response ASCII representation.
-                String responseData = String.Empty;
-
-                // Read the first batch of the TcpServer response bytes.
-                //Int32 bytes = stm.Read(data, 0, data.Length);
-                //responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-
                 Close();
             }
             catch (Exception e)
@@ -50,6 +40,7 @@ namespace mix_weeg_service
         public void Close()
         {
             tcpclient.Close();
+            tcpclient = null;
         }
     }
 }

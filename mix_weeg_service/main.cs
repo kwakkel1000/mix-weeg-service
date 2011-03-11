@@ -72,7 +72,7 @@ namespace mix_weeg_service
                     i++;
                     if (i >= 500)
                     {
-                        Console.WriteLine("pauze", Environment.NewLine);
+                        //Console.WriteLine("pauze", Environment.NewLine);
                         i = 0;
                     }
                 }
