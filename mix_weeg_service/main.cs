@@ -86,7 +86,7 @@ namespace mix_weeg_service
         public void ParseData(int portnr, string data)
         {
             //Console.WriteLine(portnr.ToString(), Environment.NewLine);
-            //Console.WriteLine(data, Environment.NewLine);
+            Console.WriteLine(data, Environment.NewLine);
             try
             {
                 data = data.TrimStart();
@@ -108,6 +108,7 @@ namespace mix_weeg_service
                 Console.WriteLine(ee.ToString(), Environment.NewLine);
                 Console.WriteLine("error parse");
             }
+            Console.WriteLine("DONE", Environment.NewLine);
             //int i = 0;
             //foreach (string word in SWeight)
             //{

@@ -32,23 +32,7 @@ namespace mix_weeg_service
         }
         public void ParseStableWeight(double Weight)
         {
-
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //tcpweeg.send(Weight.ToString() + "\r\n");
-            //Console.Write(Com.ToString());
-            //Console.Write(":  ");
             Console.WriteLine(Weight.ToString());
-
             Gew0 = Gew1;
             Gew1 = Gew2;
             Gew2 = Gew3;
@@ -128,10 +112,6 @@ namespace mix_weeg_service
                         senddata = senddata + "</AddGewicht>\r\n";
                         Console.WriteLine(senddata);
                         tcpweeg.send(senddata);
-                        //((Werknemer)Werknemers[WerknemersLookupId.IndexOf(HuidigeGebruikerId)]).AddGewicht(Convert.ToInt32(gewicht));
-                        //SendGewicht(HuidigeGebruikerId);
-                        //verstuurd = true;
-                        //recv = true;
                     }
                 }
             }
