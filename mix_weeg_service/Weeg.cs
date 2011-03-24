@@ -32,7 +32,7 @@ namespace mix_weeg_service
         }
         public void ParseStableWeight(double Weight)
         {
-            Console.WriteLine(Weight.ToString());
+            //Console.WriteLine(Weight.ToString());
             Gew0 = Gew1;
             Gew1 = Gew2;
             Gew2 = Gew3;

@@ -105,8 +105,8 @@ namespace mix_weeg_service
             }
             catch (Exception ee)
             {
-                //Console.WriteLine(ee.ToString(), Environment.NewLine);
-                //Console.WriteLine("error parse");
+                Console.WriteLine(ee.ToString(), Environment.NewLine);
+                Console.WriteLine("error parse");
             }
             //Console.WriteLine("DONE", Environment.NewLine);
             //int i = 0;
