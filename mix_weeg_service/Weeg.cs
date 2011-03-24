@@ -49,25 +49,12 @@ namespace mix_weeg_service
             {
                 if (Hoog == 1)
                 {
-                    Console.WriteLine("hoog1 ");
-                    Console.WriteLine(Gew0.ToString());
-                    Console.WriteLine(Gew1.ToString());
-                    Console.WriteLine(Gew2.ToString());
-                    Console.WriteLine(Gew3.ToString());
-                    Console.WriteLine(Gew4.ToString());
-                    Console.WriteLine(Gew5.ToString());
-                    Console.WriteLine(Gew6.ToString());
-                    Console.WriteLine(Gew7.ToString());
-                    Console.WriteLine(Gew8.ToString());
-                    Console.WriteLine(Gew9.ToString());
-                    Console.WriteLine(Gew10.ToString());
-                    Console.WriteLine(Gew11.ToString());
                     Hoog = 0;
                     bool match = false;
                     double gewicht = -1;
                     if (System.Math.Abs(Gew0 - Gew1) < 30 && System.Math.Abs(Gew1 - Gew2) < 30)
                     {
-                        Console.WriteLine("test1 ");
+                        //Console.WriteLine("test1 ");
                         if (Gew1 > MinGewicht)
                         {
                             gewicht = Gew1;
@@ -76,7 +63,7 @@ namespace mix_weeg_service
                     }
                     if (System.Math.Abs(Gew2 - Gew3) < 30 && System.Math.Abs(Gew3 - Gew4) < 30)
                     {
-                        Console.WriteLine("test2 ");
+                        //Console.WriteLine("test2 ");
                         if (Gew3 > MinGewicht)
                         {
                             gewicht = Gew3;
@@ -85,7 +72,7 @@ namespace mix_weeg_service
                     }
                     if (System.Math.Abs(Gew4 - Gew5) < 30 && System.Math.Abs(Gew5 - Gew6) < 30)
                     {
-                        Console.WriteLine("test3 ");
+                        //Console.WriteLine("test3 ");
                         if (Gew5 > MinGewicht)
                         {
                             gewicht = Gew5;
@@ -94,7 +81,7 @@ namespace mix_weeg_service
                     }
                     if (System.Math.Abs(Gew6 - Gew7) < 30 && System.Math.Abs(Gew7 - Gew8) < 30)
                     {
-                        Console.WriteLine("test4 ");
+                        //Console.WriteLine("test4 ");
                         if (Gew7 > MinGewicht)
                         {
                             gewicht = Gew7;
@@ -103,14 +90,14 @@ namespace mix_weeg_service
                     }
                     if (match)
                     {
-                        Console.WriteLine("Send Gewicht: ");
+                        //Console.WriteLine("Send Gewicht: ");
                         string senddata;
                         senddata = "<AddGewicht> ";
                         senddata = senddata + ServerID + " ";
                         senddata = senddata + (Com + 1).ToString() + " ";
                         senddata = senddata + gewicht.ToString() + " ";
                         senddata = senddata + "</AddGewicht>\r\n";
-                        Console.WriteLine(senddata);
+                        //Console.WriteLine(senddata);
                         tcpweeg.send(senddata);
                     }
                 }
