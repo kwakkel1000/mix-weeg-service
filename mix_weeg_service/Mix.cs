@@ -123,7 +123,7 @@ namespace mix_weeg_service
                 {
                     if (StringWeight.Contains("."))
                     {
-                        string[] Sdata2 = data.Split('.');
+                        string[] Sdata2 = StringWeight.Split('.');
                         StringWeight = Sdata2[0] + Sdata2[1];
                     }
                     Console.WriteLine(StringWeight, Environment.NewLine);

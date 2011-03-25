@@ -26,7 +26,7 @@ namespace mix_weeg_service
         {
             while (tcpclient == null)
             {
-                Console.WriteLine("socket == null", Environment.NewLine);
+                //Console.WriteLine("socket == null", Environment.NewLine);
                 Open();
             }
             if (tcpclient != null)
