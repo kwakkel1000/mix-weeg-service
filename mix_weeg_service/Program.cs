@@ -9,14 +9,19 @@ namespace mix_weeg_service
 {
     class Program
     {
+        static Mix mix;
+        ~Program()
+        {
+            mix.Stop();
+        }
+    
         static void Main(string[] args)
         {
             try
             {
-
-                main Main;
-                Main = new main();
-                Main.init();
+                mix = new Mix();
+                mix.init();
+                mix.run();
             }
             catch (Exception ee)
             {

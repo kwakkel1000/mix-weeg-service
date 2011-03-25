@@ -8,27 +8,27 @@ namespace mix_weeg_service
     {
         public string ServerID;
         private double MinGewicht = 40;
-        public int Hoog = 0;
-        public Double Gew0 = 0;
-        public Double Gew1 = 0;
-        public Double Gew2 = 0;
-        public Double Gew3 = 0;
-        public Double Gew4 = 0;
-        public Double Gew5 = 0;
-        public Double Gew6 = 0;
-        public Double Gew7 = 0;
-        public Double Gew8 = 0;
-        public Double Gew9 = 0;
-        public Double Gew10 = 0;
-        public Double Gew11 = 0;
-        public int Com = -1;
-        public TcpClientWeeg tcpweeg;
+        private int Hoog = 0;
+        private Double Gew0 = 0;
+        private Double Gew1 = 0;
+        private Double Gew2 = 0;
+        private Double Gew3 = 0;
+        private Double Gew4 = 0;
+        private Double Gew5 = 0;
+        private Double Gew6 = 0;
+        private Double Gew7 = 0;
+        private Double Gew8 = 0;
+        private Double Gew9 = 0;
+        private Double Gew10 = 0;
+        private Double Gew11 = 0;
+        private int Com = -1;
+        private TcpClientWeeg tcpweeg;
 
-        public Weeg(int com, string server, string Serverid)
+        public Weeg(int com, string Serverid, TcpClientWeeg tmptcpweeg)
         {
             Com = com;
-            tcpweeg = new TcpClientWeeg(server);
             ServerID = Serverid;
+            tcpweeg = tmptcpweeg;
         }
         public void ParseStableWeight(double Weight)
         {

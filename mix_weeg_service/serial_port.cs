@@ -9,39 +9,55 @@ namespace mix_weeg_service
     class serial_port
     {
 
-        public delegate void COMServer(int portnr, string data);
         private COMServer comServer;
-        public SerialPort _serialPort;
-        public int portnr;
+        private SerialPort _serialPort;
+        private int portnr;
+
+        private bool mRun;
 
         public serial_port()
         {
+            Console.WriteLine("new serial_port()", Environment.NewLine);
+            mRun = true;
+        }
 
+        public void Stop()
+        {
+            mRun = false;
         }
 
         public void init(int j)
         {
-            portnr = j;
-            _serialPort = new SerialPort();
-            int i = 0;
-            foreach (string s in SerialPort.GetPortNames())
+            while (mRun)
             {
-                if (j == i)
+                Console.WriteLine("new SerialPort()", Environment.NewLine);
+                portnr = j;
+                _serialPort = new SerialPort();
+                int i = 0;
+                foreach (string s in SerialPort.GetPortNames())
                 {
-                    Console.WriteLine(s);
-                    _serialPort.PortName = s;
+                    if (j == i)
+                    {
+                        Console.WriteLine(s);
+                        _serialPort.PortName = s;
+                    }
+                    i++;
                 }
-                i++;
+                _serialPort.ReadTimeout = 500;
+                _serialPort.WriteTimeout = 500;
+                _serialPort.BaudRate = 9600;
+                _serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), _serialPort.Parity.ToString());
+                _serialPort.DataBits = int.Parse(_serialPort.DataBits.ToString());
+                _serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), _serialPort.StopBits.ToString());
+                _serialPort.Handshake = (Handshake)Enum.Parse(typeof(Handshake), _serialPort.Handshake.ToString());
+                _serialPort.Open();
+                _serialPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+                while (_serialPort.IsOpen == true)
+                {
+                    Thread.Sleep(50);
+                }
+                Console.WriteLine("closed", Environment.NewLine);
             }
-            _serialPort.ReadTimeout = 500;
-            _serialPort.WriteTimeout = 500;
-            _serialPort.BaudRate = 9600;
-            _serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), _serialPort.Parity.ToString());
-            _serialPort.DataBits = int.Parse(_serialPort.DataBits.ToString());
-            _serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), _serialPort.StopBits.ToString());
-            _serialPort.Handshake = (Handshake)Enum.Parse(typeof(Handshake), _serialPort.Handshake.ToString());
-            _serialPort.Open();
-            _serialPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
             Console.WriteLine("eind init", Environment.NewLine);
         }
 
@@ -56,6 +72,7 @@ namespace mix_weeg_service
             {
                 Thread.Sleep(50);
                 string data = _serialPort.ReadLine();
+                Console.WriteLine(data, Environment.NewLine);
                 if (comServer != null)
                 {
                     comServer(portnr, data);

@@ -23,18 +23,25 @@ namespace mix_weeg_service
         }
         public void send(string str)
         {
-            try
+            while (tcpclient.Connected == false)
             {
                 Open();
-                Stream stm = tcpclient.GetStream();
-                ASCIIEncoding asen = new ASCIIEncoding();
-                byte[] data = asen.GetBytes(str);
-                stm.Write(data, 0, data.Length);
-                Close();
             }
-            catch (Exception e)
+            if (tcpclient.Connected == true)
             {
-                Console.WriteLine(e.ToString());
+                try
+                {
+                    //Open();
+                    Stream stm = tcpclient.GetStream();
+                    ASCIIEncoding asen = new ASCIIEncoding();
+                    byte[] data = asen.GetBytes(str);
+                    stm.Write(data, 0, data.Length);
+                    //Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
             }
         }
         public void Close()
