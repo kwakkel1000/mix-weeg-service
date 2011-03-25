@@ -66,9 +66,9 @@ namespace mix_weeg_service
         {
             try
             {
-                Thread.Sleep(50);
+                //Thread.Sleep(50);
                 string data = _serialPort.ReadLine();
-                Console.WriteLine(data, Environment.NewLine);
+                //Console.WriteLine(data, Environment.NewLine);
                 if (comServer != null)
                 {
                     comServer(portnr, data);
