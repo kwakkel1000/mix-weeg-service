@@ -26,8 +26,9 @@ namespace mix_weeg_service
             mRun = false;
         }
 
-        public void init(int j)
+        public void init(COMServer tmpcomServer, int j)
         {
+            comServer = tmpcomServer;
             while (mRun)
             {
                 Console.WriteLine("new SerialPort()", Environment.NewLine);
@@ -59,11 +60,6 @@ namespace mix_weeg_service
                 Console.WriteLine("closed", Environment.NewLine);
             }
             Console.WriteLine("eind init", Environment.NewLine);
-        }
-
-        public void AddDelegate(COMServer tmpcomServer)
-        {
-            comServer = tmpcomServer;
         }
 
         void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
