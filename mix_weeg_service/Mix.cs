@@ -121,7 +121,11 @@ namespace mix_weeg_service
                 }
                 else
                 {
-                    StringWeight.Replace(".","");
+                    if (StringWeight.Contains("."))
+                    {
+                        string[] Sdata2 = data.Split('.');
+                        StringWeight = Sdata2[0] + Sdata2[1];
+                    }
                     Console.WriteLine(StringWeight, Environment.NewLine);
                     Weight = Convert.ToDouble(StringWeight) * GewichtsClasse;
                 }
