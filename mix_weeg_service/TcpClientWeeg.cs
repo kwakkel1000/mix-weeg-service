@@ -18,7 +18,7 @@ namespace mix_weeg_service
 
         public void Open()
         {
-            Console.WriteLine("open connection", Environment.NewLine);
+            //Console.WriteLine("open connection", Environment.NewLine);
             tcpclient = new TcpClient();
             tcpclient.Connect(ServerDNS, 3001);
         }
@@ -46,7 +46,7 @@ namespace mix_weeg_service
                     ASCIIEncoding asen = new ASCIIEncoding();
                     byte[] data = asen.GetBytes(str);
                     stm.Write(data, 0, data.Length);
-                    //Close();
+                    Close();
                 }
                 catch (Exception e)
                 {
@@ -56,7 +56,7 @@ namespace mix_weeg_service
         }
         public void Close()
         {
-            Console.WriteLine("close connection", Environment.NewLine);
+            //Console.WriteLine("close connection", Environment.NewLine);
             tcpclient.Close();
             tcpclient = null;
         }

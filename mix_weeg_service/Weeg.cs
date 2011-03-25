@@ -44,7 +44,7 @@ namespace mix_weeg_service
             Gew8 = Gew9;
             Gew9 = Gew10;
             Gew10 = Gew11;
-            Gew11 = Convert.ToDouble(Weight);
+            Gew11 = Weight;
             if (Weight < MinGewicht)
             {
                 if (Hoog == 1)
