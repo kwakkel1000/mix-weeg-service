@@ -18,14 +18,24 @@ namespace mix_weeg_service
 
         public void Open()
         {
+            Console.WriteLine("open connection", Environment.NewLine);
             tcpclient = new TcpClient();
             tcpclient.Connect(ServerDNS, 3001);
         }
         public void send(string str)
         {
-            while (tcpclient.Connected == false)
+            while (tcpclient == null)
             {
+                Console.WriteLine("socket == null", Environment.NewLine);
                 Open();
+            }
+            if (tcpclient != null)
+            {
+                while (tcpclient.Connected == false)
+                {
+                    Console.WriteLine("socket not connected", Environment.NewLine);
+                    Open();
+                }
             }
             if (tcpclient.Connected == true)
             {
@@ -46,6 +56,7 @@ namespace mix_weeg_service
         }
         public void Close()
         {
+            Console.WriteLine("close connection", Environment.NewLine);
             tcpclient.Close();
             tcpclient = null;
         }
