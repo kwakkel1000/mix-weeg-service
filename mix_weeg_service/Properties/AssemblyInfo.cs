@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("mix_weeg_service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("boekestijn")]
 [assembly: AssemblyProduct("mix_weeg_service")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2010")]
+[assembly: AssemblyCopyright("Copyright © boekestijn")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

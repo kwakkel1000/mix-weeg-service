@@ -38,7 +38,7 @@ namespace mix_weeg_service
 
         public void init()
         {
-            ReadFromFile("c:\\weegservice.ini");
+            ReadFromFile("C:\\weegservice.ini");
             Console.WriteLine(ServerDNS, Environment.NewLine);
             Console.WriteLine(ServerID, Environment.NewLine);
             Console.WriteLine(GewichtsClasse.ToString(), Environment.NewLine);
